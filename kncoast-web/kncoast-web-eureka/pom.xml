@@ -20,6 +20,11 @@
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>net.logstash.logback</groupId>
+			<artifactId>logstash-logback-encoder</artifactId>
+			<version>4.7</version>
+		</dependency>
+		<dependency>
 			<groupId>com.kncoast</groupId>
 			<artifactId>kncoast-common-classes</artifactId>
 			<version>0.0.1-SNAPSHOT</version>

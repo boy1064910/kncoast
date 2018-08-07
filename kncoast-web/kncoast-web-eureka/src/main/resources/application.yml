@@ -1,0 +1,39 @@
+spring:
+   application:
+      name: eureka
+
+security:
+  user:
+    name: kncoast
+    password: Kncoast2018
+
+server:
+  port: 8080
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${security.user.name}:${security.user.password}@${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+    enable-self-preservation: false           # 关闭自我保护模式（缺省为打开）
+    eviction-interval-timer-in-ms: 5000       # 续期时间，即扫描失效服务的间隔时间（缺省为60*1000ms）
+      
+logging:
+  config:
+     classpath: logback-spring.xml
+  path: ${user.home}/logs/${spring.application.name}
+  level:
+     root: INFO
+
+---
+spring:
+   profiles: master
+
+eureka:
+  server:
+    enable-self-preservation: true           # 关闭自我保护模式（缺省为打开）
+    eviction-interval-timer-in-ms: 60000       # 续期时间，即扫描失效服务的间隔时间（缺省为60*1000ms）

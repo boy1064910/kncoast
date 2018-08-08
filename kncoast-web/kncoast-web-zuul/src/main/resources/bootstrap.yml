@@ -1,0 +1,10 @@
+spring:
+   application:
+      name: kncoast-web-zuul
+
+logging:
+  config: classpath:logback-spring.xml
+  path: ${user.home}/logs/${spring.application.name}
+  level:
+     root: INFO
+

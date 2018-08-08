@@ -8,8 +8,6 @@ server:
     uri-encoding: UTF-8
 
 spring:
-  application:
-    name: kncoast-web-zuul
   hateoas:
     use-hal-as-default-json-media-type: true
   http:
@@ -37,12 +35,5 @@ eureka:
     statusPageUrlPath: /info
     healthCheckUrlPath: /health
     lease-renewal-interval-in-seconds: 3
-
-
-logging:
-  config: classpath:logback-spring.xml
-  path: ${user.home}/logs/${spring.application.name}
-  level:
-     root: INFO
 
 

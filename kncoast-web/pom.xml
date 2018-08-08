@@ -21,10 +21,11 @@
 	</properties>
 
 	<modules>
-		<module>kncoast-feign-user</module>
-		<module>kncoast-web-user</module>
 		<module>kncoast-web-eureka</module>
 		<module>kncoast-web-zuul</module>
+		<module>kncoast-web-config-server</module>
+		<module>kncoast-feign-user</module>
+		<module>kncoast-web-user</module>
 	</modules>
 
 	<dependencyManagement>

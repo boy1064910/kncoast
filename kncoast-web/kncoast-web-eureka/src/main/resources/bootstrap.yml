@@ -1,6 +1,6 @@
 spring:
    application:
-      name: eureka
+      name: kncoast-web-eureka
 
 logging:
   config: classpath:logback-spring.xml

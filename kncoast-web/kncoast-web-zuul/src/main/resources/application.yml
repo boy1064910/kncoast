@@ -1,0 +1,48 @@
+server:
+  port: 7001
+  tomcat:
+    accept-count: 1000         #当所有可能的请求处理线程都在使用时，传入连接请求的最大队列长度。
+    max-connections: 1000      #服务器在任何给定时间接受和处理的最大连接数。
+    max-threads: 100           #最大工作线程数。
+    min-spare-threads: 10      #最小工作线程数。
+    uri-encoding: UTF-8
+
+spring:
+  application:
+    name: kncoast-web-zuul
+  hateoas:
+    use-hal-as-default-json-media-type: true
+  http:
+    encoding:
+      charset: UTF-8
+    converters:
+      preferred-json-mapper: jackson
+  aop:
+    auto: true
+
+security:
+  user:
+    name: kncoast
+    password: kncoast2018
+
+eureka:
+  client:
+    registry-fetch-interval-seconds: 5  #表示eureka client间隔多久去拉取服务注册信息，默认为30秒，对于api-gateway，如果要迅速获取服务注册状态，可以缩小该值，比如5秒
+    healthcheck:
+      enabled: false
+    service-url:
+      defaultZone: http://${security.user.name}:${security.user.password}@localhost:7000/eureka/
+  instance:
+    prefer-ip-address: true
+    statusPageUrlPath: /info
+    healthCheckUrlPath: /health
+    lease-renewal-interval-in-seconds: 3
+
+
+logging:
+  config: classpath:logback-spring.xml
+  path: ${user.home}/logs/${spring.application.name}
+  level:
+     root: INFO
+
+
